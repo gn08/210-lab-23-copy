@@ -17,6 +17,14 @@ int main() {
     srand(time(0));
     bool again;
 
+    do{
+        cout << "\n*** GOAT MANAGER 3001 ***" << endl;
+        cout << "[1] Add a goat" << endl;
+        cout << "[2] Delete a goat" << endl;
+        cout << "[3] List goats" << endl;
+        cout << "Choice -->";
+    }
+
     // read & populate arrays for names and colors
     ifstream fin("names.txt");
     string names[SZ_NAMES];
