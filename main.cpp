@@ -37,11 +37,19 @@ void delete_goat(){
 }
 
 void display_trip(){
-    if (tr)
+    if (trip.empty()){
+        cout << "No goats" << endl;
+        return;
+    }
+
+    int count = 1;
+    for (const Goat &g : trip){
+        cout << "[" << count ++ << "]" << g.get_name << " (" << g.get_age() << "," << g.get_color() << ")" << endl;
+    }
 }
 
 int select_goat(list<Goat>trip){
-
+    i
 }
 
 int main() {
