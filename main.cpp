@@ -17,15 +17,27 @@ void add_goat(list<Goat>trip, string names[], string colors[]){
     int name_index = rand() % SZ_NAMES;
     int color_index = rand() % SZ_COLORS;
     int age = rand() % (MAX_AGE + 1);
-    
+    Goat new_goat(names[name_index], age, colors[color_index]);
+    trip.push_back(new_goat);
+    cout << "Goat added: " << new_goat.get_name() << "(" << new_goat.get_age() << "," << new_goat.get_color() << ")" << endl;
 }
 
 void delete_goat(){
+    if (trip.empty()){
+        cout << "No goats" << endl;
+        return;
+    }
 
+    int index = select_goat(trip);
+    if (index == 1) return;
+    auto it = trip.begin();
+    advance(it, index);
+    trip.erase(it);
+    cout << "Deleted" << endl;
 }
 
 void display_trip(){
-
+    if (tr)
 }
 
 int select_goat(list<Goat>trip){
