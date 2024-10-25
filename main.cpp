@@ -19,25 +19,6 @@ int main() {
     bool valid_choice;
     srand(time(0));
 
-    do{
-        cout << "\n*** GOAT MANAGER 3001 ***" << endl;
-        cout << "[1] Add a goat" << endl;
-        cout << "[2] Delete a goat" << endl;
-        cout << "[3] List goats" << endl;
-        cout << "Choice -->";
-
-        cin >> choice;
-
-        if (cin.fail() || choice < 1 || choice > 4){
-            cin.clear();
-            cin.ignore(1000, '/n');
-            cout << "Invalid" << endl;
-        } else {
-            valid_choice = true;
-        }
-    }while (!valid_choice);
-    return choice;
-
     // read & populate arrays for names and colors
     ifstream fin("names.txt");
     string names[SZ_NAMES];
@@ -72,6 +53,31 @@ int main() {
     return 0;
 }
 
+int main_menu(){
+    int choice;
+    bool valid_choice = false;
+
+    do{
+        cout << "\n*** GOAT MANAGER 3001 ***" << endl;
+        cout << "[1] Add a goat" << endl;
+        cout << "[2] Delete a goat" << endl;
+        cout << "[3] List goats" << endl;
+        cout << "Choice -->";
+
+        cin >> choice;
+
+        if (cin.fail() || choice < 1 || choice > 4){
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Invalid" << endl;
+        } else {
+            valid_choice = true;
+        }
+    }while (!valid_choice);
+
+    return choice;
+}
+
 void add_goat(list<Goat>trip, string names[], string colors[]){
     int name_index = rand() % SZ_NAMES;
     int color_index = rand() % SZ_COLORS;
@@ -88,7 +94,7 @@ void delete_goat(){
     }
 
     int index = select_goat(trip);
-    if (index == 1) return;
+    if (index == -1) return;
     auto it = trip.begin();
     advance(it, index);
     trip.erase(it);
@@ -110,7 +116,7 @@ void display_trip(){
 int select_goat(list<Goat>trip){
     if (trip.empty()){
         cout << "No goats" << endl;
-        return 1;
+        return - 1;
     }
 
     int count = 1;
@@ -124,8 +130,9 @@ int select_goat(list<Goat>trip){
 
     if (selection < 1 || selection > trip.size()){
         cout << "Invalid" << endl;
-        return 1;
+        return -1;
     }
 
-    return selection 1;
+    return selection - 1;
+
 }
