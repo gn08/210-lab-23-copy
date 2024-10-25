@@ -60,10 +60,41 @@ int select_goat(list<Goat>trip){
     }
 
     int selection;
-     
+    cout << "Select goat number: ";
+    cin >> selection;
+
+    if (selection < 1 || selection > trip.size()){
+        cout << "Invalid" << endl;
+        return 1;
+    }
+
+    return selection 1;
 }
 
 int main() {
+    list<Goat> trip;
+    string names[SZ_NAMES];
+    string colors[SZ_COLORS];
+
+    bool quit = false;
+    while (!quit){
+        int choice = main_menu();
+        switch (choice){
+            case 1:
+                add_goat(trip, names, colors);
+                break;
+            case 2:
+                delete_goat(trip);
+                break;
+            case 3:
+                display_trip(trip);
+                break;
+            case 4:
+                quit = true;
+                break;
+        }
+        return 0;
+    }
     srand(time(0));
     bool again;
 
