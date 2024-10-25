@@ -13,6 +13,22 @@ void add_goat(list<Goat> &trip, string [], string []);
 void display_trip(list<Goat> trip);
 int main_menu();
 
+void add_goat(){
+
+}
+
+void delete_goat(){
+
+}
+
+void display_trip(){
+
+}
+
+int select_goat(){
+    
+}
+
 int main() {
     srand(time(0));
     bool again;
@@ -23,7 +39,18 @@ int main() {
         cout << "[2] Delete a goat" << endl;
         cout << "[3] List goats" << endl;
         cout << "Choice -->";
-    }
+
+        cin >> choice;
+
+        if (cin.fail() || choice < 1 || choice > 4){
+            cin.clear();
+            cin.ignore(1000, '/n');
+            cout << "Invalid" << endl;
+        } else {
+            valid_choice = true;
+        }
+    }while (!valid_choice);
+    return choice;
 
     // read & populate arrays for names and colors
     ifstream fin("names.txt");
