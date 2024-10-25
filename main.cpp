@@ -13,8 +13,11 @@ void add_goat(list<Goat> &trip, string [], string []);
 void display_trip(list<Goat> trip);
 int main_menu();
 
-void add_goat(){
-
+void add_goat(list<Goat>trip, string names[], string colors[]){
+    int name_index = rand() % SZ_NAMES;
+    int color_index = rand() % SZ_COLORS;
+    int age = rand() % (MAX_AGE + 1);
+    
 }
 
 void delete_goat(){
@@ -25,8 +28,8 @@ void display_trip(){
 
 }
 
-int select_goat(){
-    
+int select_goat(list<Goat>trip){
+
 }
 
 int main() {
