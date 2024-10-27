@@ -14,9 +14,6 @@ void display_trip(list<Goat> trip);
 int main_menu();
 
 int main() {
-    bool again;
-    int choice;
-    bool valid_choice;
     srand(time(0));
 
     // read & populate arrays for names and colors
@@ -87,7 +84,7 @@ void add_goat(list<Goat>trip, string names[], string colors[]){
     cout << "Goat added: " << new_goat.get_name() << "(" << new_goat.get_age() << "," << new_goat.get_color() << ")" << endl;
 }
 
-void delete_goat(){
+void delete_goat(list<Goat> &trip){
     if (trip.empty()){
         cout << "No goats" << endl;
         return;
@@ -101,7 +98,7 @@ void delete_goat(){
     cout << "Deleted" << endl;
 }
 
-void display_trip(){
+void display_trip(list<Goat> &trip){
     if (trip.empty()){
         cout << "No goats" << endl;
         return;
@@ -113,14 +110,14 @@ void display_trip(){
     }
 }
 
-int select_goat(list<Goat>trip){
+int select_goat(list<Goat>&trip){
     if (trip.empty()){
         cout << "No goats" << endl;
         return - 1;
     }
 
     int count = 1;
-    for (const Goat &g : trip){
+    for (const Goat& g : trip){
         cout << "[" << count++ << "]" << g.get_name() << " (" << g.get_age() << "," << g.get_color() << ")" << endl;
     }
 
