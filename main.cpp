@@ -8,8 +8,8 @@ using namespace std;
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
 int select_goat(list<Goat> trip);
-void delete_goat(list<Goat> &trip);
-void add_goat(list<Goat> &trip, string [], string []);
+void delete_goat(list<Goat>& trip);
+void add_goat(list<Goat>& trip, string names[], string colors[]);
 void display_trip(list<Goat> trip);
 int main_menu();
 
@@ -106,7 +106,7 @@ void display_trip(list<Goat> &trip){
 
     int count = 1;
     for (const Goat &g : trip){
-        cout << "[" << count ++ << "]" << g.get_name << " (" << g.get_age() << "," << g.get_color() << ")" << endl;
+        cout << "[" << count ++ << "]" << g.get_name() << " (" << g.get_age() << "," << g.get_color() << ")" << endl;
     }
 }
 
